@@ -7,25 +7,9 @@
         </style>
     </head>
     <body>
-        <h1>
-            <img id="profile_img" width=100 src="https://avatars.githubusercontent.com/u/82073780?v=4">    
-            애국가
+        <h1 onclick="alert('h1을 클릭했습니다.')" >
+            onclick 예제
         </h1>
-
-        <p id="songwriter">작곡 : 안익태</p>
-        <p id="lyricist" style="color:red;">작사: 미상</p>
-
-        <h2>1절</h2>
-        <p class="lyric">
-            동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세.<br>
-            무궁화 삼천리 화려강산대한 사람, 대한으로 길이 보전하세.
-        </p>
-
-        <h2>2절</h2>
-        <p class="lyric">
-            남산 위에 저 소나무, 철갑을 두른 듯 바람서리 불변함은 우리 기상일세. <br>
-            무궁화 삼천리 화려강산대한 사람, 대한으로 길이 보전하세.
-        </p>
-
+        <input id="text_box" type="text" onkeydown="console.log(document.getElementById('text_box').value)" onchange="console.log('modifyed')">
     </body>
 </html>
