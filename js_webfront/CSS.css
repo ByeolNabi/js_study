@@ -1,4 +1,11 @@
 p{
     font-size: 2em;
-    color:rgb(188, 73, 6);
+}
+
+h2{
+    color:green;
+}
+
+h1{
+    color:darkblue;
 }
