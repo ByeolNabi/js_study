@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 style="font-size: 2em;">form태그를 이용한 데이터 전송 실습</h1>
+        <form
+            method="GET" action="form_dst.html" id="form_login">
+            아이디 : <input type="text" name="user_id"> <br><br>
+            비밀번호 : <input type="text" name="user_pw">
+
+            <input type="submit"  value="출발">
+        </form>
+        
+        <form onsubmit = "return false;">
+            폼테그가 페이지를 이동시킨다. 따라서 onsubmit도 버튼이 아니라 submit에 적용시켜야 한다.<br>
+            특정 form태그에 이벤트를 추가한 것이기 때문에 이 버튼에서는 작동하지 않는다.
+            <input type="submit"  value="멈춰">
+        </form>
+
+        <script>
+            var t = document.getElementById("form_login");
+            t.onsubmit = function a(){
+                console.log("new onsubmit method a()");
+                return false;
+            }
+            t.onsubmit = function a_(){
+                console.log("new onsubmit method a_()");
+                return false;
+            }
+            function b(){
+                console.log("add eventListener b()");
+                return false;
+            }
+            function c(){
+                console.log("add eventListener c()");
+                return false;
+            }
+            t.addEventListener("submit", b);
+            t.addEventListener("submit", c);
+        </script>
+    </body>
+</html>
