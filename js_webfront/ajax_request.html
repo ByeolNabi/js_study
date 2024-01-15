@@ -1,21 +1,35 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <style>
+            .character {color:black;}
+            .word{color:gray;}
+        </style>
+
         <script>
             var req = new XMLHttpRequest();
-            req.onreadstatechange = function a(){
+            req.onreadystatechange = function a(){
                 console.log(this.readyState, this.status);
+                if( this.readyState == 4){
+                    console.log(this.response);
+                    var data = JSON.parse(this.response);
+                    for (var i in data){
+                        var t = document.getElementById("template").cloneNode(true);
+                        t.removeAttribute("id");
+                        t.children[0].innerText = data[i].id;
+                        t.children[1].innerText = data[i].msg;
+                        document.body.appendChild(t);
+                    }
+                }
             }
-            req.open("GET", "https://www.google.com/");
+            req.open("GET", "./json_data.txt");
             req.send();
-            console.log(req.readyState);
-            /*
-            (1)open 호출 전, (2)open 호출 후, (3)보낸 요청에 대한 헤더가 수신된 후
-            (4)응답 메시지에 바디 부분이 수신 중 일때, (5)모든 응답이 완료되었을 때
-            */
+
         </script>
     </head>
     <body>
-        AJAX
+        <p id = "template">
+            <span class="chracter">주인공</span> : <span class="word">명대사</span>
+        </p>
     </body>
 </html>
