@@ -8,8 +8,12 @@ req.onreadystatechange = function(){
             var div = document.createElement("div");
             div.setAttribute("class","image");
             div.onclick = function(){
-                this.setAttribute("class","image image-selected");
-
+                if(this.className == "image image-selected"){
+                    this.setAttribute("class","image");
+                }
+                else if("image"){
+                    this.setAttribute("class","image image-selected");
+                }
             }
             var img = document.createElement("img");
             img.src = data[i];
