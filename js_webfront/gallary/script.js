@@ -8,8 +8,7 @@ req.onreadystatechange = function(){
             var div = document.createElement("div");
             div.setAttribute("class","image");
             div.onclick = function(){
-                // image image-selecte이면 회색으로 안 바뀜 image-selected에서 image로 하면 바뀜
-                this.setAttribute("class","image-selected image"); // css 에서 다중 클래스일 떄에 css가 안 덮어씌워지는 경우도 있나.?
+                this.setAttribute("class","image image-selected");
 
             }
             var img = document.createElement("img");
