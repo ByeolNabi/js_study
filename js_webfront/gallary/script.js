@@ -25,8 +25,7 @@ req.onreadystatechange = function(){
 }
 req.send();
 
-function selectAll(){
-    var images = document.getElementsByClassName("image");
+function selectAll(btn){
     /*if(images.length == 0){
         images = document.getElementsByClassName("image-selected");
         for (var i = 0; i < images.length; i++){
@@ -38,17 +37,5 @@ function selectAll(){
             images[i].setAttribute("class","image-selected");
         }
     }*/
-    if(images.length == 0){
-        images = document.getElementsByClassName("image-selected");
-        var img_leng = images.length
-        for (var i = 0; i < img_leng; i++){
-            images[0].setAttribute("class","image");
-        }
-    }
-    else{
-        var img_leng = images.length
-        for (var i = 0; i < img_leng; i++){
-            images[0].setAttribute("class","image-selected");
-        }
-    }
+    btn.value = btn.value == "Select All"?"Unselect all":"Select All";
 }
