@@ -16,6 +16,38 @@ req.onreadystatechange = function(){
                 }*/
                 this.classList.toggle("image-selected");
             }
+            // 이미지 확대 축소
+            // 임시 함수로 묶을 거라면 this를 사용할 수 없다는 것을 항상 기억하자
+            // 태그에 접근하기 위해서는 document.div와 같이 접근할 수 없다. getElements...(), child[idx]와 같은 형태를 이용하자
+            // 이미지 수정을 위해 태그에 직접 style을 추가하는 것이 맞는 판단일까? css파일에 접근할 수 있는지도 고민해보자.
+            div.onmouseover = function(){
+                var target_e = this
+                this.timerID = setTimeout( function( ){ // 그냥 태그에 저장해버리기
+                    target_e.classList.add("image-magnified");
+                    /*
+                    var target_i = target_e.getElementsByTagName("img")[0];
+                    (function(){
+                        target_i.width = target_i.width * 1.2;
+                        target_i.height = target_i.height * 1.2;
+                    })();
+                    */
+                }, 500);
+            }
+            div.onmouseout = function(){
+                clearTimeout(this.timerID)
+                this.classList.remove("image-magnified");
+                /*
+                var target_i = this.getElementsByTagName("img")[0];
+                (function(){
+                    if(target_i.hasAttribute("width")){
+                        target_i.removeAttribute("width");
+                    }
+                    if(target_i.hasAttribute("height")){
+                        target_i.removeAttribute("height");
+                    }
+                })();
+                */
+            }
             var img = document.createElement("img");
             img.src = data[i];
             div.appendChild(img);
@@ -49,3 +81,8 @@ function selectAll(btn){
     }
     btn.value = btn.value == "Select All"?"Unselect All":"Select All";
 }
+
+/*
+document.getElementsByTagName("img")
+a[0].removeAttribute("width")
+*/
