@@ -82,7 +82,21 @@ function selectAll(btn){
     btn.value = btn.value == "Select All"?"Unselect All":"Select All";
 }
 
-/*
-document.getElementsByTagName("img")
-a[0].removeAttribute("width")
-*/
+function slideShow(btn){
+    var images = document.getElementsByClassName("image");
+    var idx_range = images.length;
+    var index = 0;
+    images[0].classList.add("image-magnified");
+
+    var intervalID = setInterval( function(){
+        images[index].classList.remove("image-magnified");
+        console.log(index);
+        if(idx_range != index){
+            index++;
+            images[index].classList.add("image-magnified");
+        } else{
+            clearInterval(intervalID);
+        }
+    }, 1000);
+
+}
